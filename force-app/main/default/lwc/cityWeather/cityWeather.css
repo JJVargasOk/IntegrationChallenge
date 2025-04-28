@@ -1,0 +1,70 @@
+.container {
+    height: 600px;
+    width: 100%; 
+    overflow: scroll;
+}
+
+.spinnerHolder{
+    height: 100%;
+    position: relative;
+}
+
+.currentIcon {
+    max-width: 50%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.currentLeftSide {
+    align-items: center;
+    font-size: xxx-large;
+}
+
+.currentTemp{
+    justify-items: center;
+    padding: 0 10px;
+    display: grid;
+;
+}
+
+.forecastImg{
+    max-width: 50%;
+    display: flex;
+    justify-self: center;
+}
+
+.forecastCard {
+    align-items: center;
+    padding: 10px 0px;
+}
+
+.justifyItemsCenter{
+    justify-items: center;
+}
+
+.alignItemsCenter{
+    align-items: center;
+}
+
+.textAlignCenter{
+    text-align: center;
+}
+
+.maxWidths{
+    max-width: 50%;
+}
+
+.currentHumidity {
+    margin-right: 2%;
+}
+
+@media only screen and (min-width: 768px) {
+    .forecastImg{
+        max-width: 55px;
+        display: flex;
+        justify-self: center;
+    }
+    .maxWidths{
+        max-width: 33%;
+    }
+  } 

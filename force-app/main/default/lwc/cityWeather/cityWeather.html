@@ -1,0 +1,74 @@
+<template>
+    <div class="container">
+        <div class="slds-grid slds-wrap slds-m-horizontal_xx-large slds-gutters">
+            <div class="slds-col slds-medium-size_1-of-2 slds-size_1-of-1">
+                <lightning-combobox 
+                    label="Select Continent" 
+                    class="slds-m-bottom_small"
+                    placeholder="Select Continent"
+                    value={selectedContinent} 
+                    options={continentOptions} 
+                    onchange={handleContinentChange}>
+                </lightning-combobox>
+                
+                <lightning-combobox 
+                    label="Select City" 
+                    class="slds-m-bottom_small"
+                    placeholder="Select City"
+                    value={selectedCity} 
+                    options={cityOptions} 
+                    onchange={handleCityChange} 
+                    disabled={isCityDisabled}>
+                </lightning-combobox>
+            </div>
+            <div class="slds-col slds-medium-size_1-of-2 slds-size_1-of-1 slds-p-top_large">
+                <template if:true={showSpinner}>
+                    <div class="spinnerHolder slds-p-top_large">
+                        <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+                    </div>
+                </template>
+                <template if:false={showSpinner}>
+                    <template if:true={citySelected}>
+                        <lightning-card title={currentTitle}>
+                            <div class="slds-grid slds-wrap slds-media_center">
+                                <div class="slds-col slds-large-size_2-of-3 slds-size_1-of-1 slds-grid currentLeftSide">
+                                    <div class="currentTemp slds-col">{currentTemp}°</div>
+                                    <img src={currentSrc} class="slds-col currentIcon" alt="Current weather"/>
+                                </div>
+                                <div class="slds-col slds-grid slds-wrap slds-large-size_1-of-3 slds-size_1-of-1 slds-text-align_center">
+                                    <div class="slds-p-horizontal_small slds-size_1-of-2 slds-large-size_1-of-1 slds-text-heading_small slds-align_absolute-center">
+                                        <img src={humidity} alt="Current humidity icon" class="currentHumidity"/>{currentHumidity}
+                                    </div>
+                                    <div class="slds-p-horizontal_small slds-size_1-of-2 slds-large-size_1-of-1 slds-align_absolute-center">{currentDescription}</div>
+                                </div>
+                            </div>
+                            <div slot="footer" class="slds-p-around_none">
+                                <template for:each={forecastDays} for:item="day">
+                                    <div key={day} class="slds-col slds-grid slds-box slds-box_small forecastCard">
+                                        <div class="slds-col maxWidths justifyItemsCenter">
+                                            {day.day}
+                                            <p>{day.temperature}°</p>
+                                        </div>
+                                        <div class="slds-col maxWidths justifyItemsCenter">
+                                            <img src={day.weather} alt="Forecast img" class="forecastImg" />
+                                        </div>
+                                        <div class="slds-col slds-show_medium maxWidths justifyItemsCenter">
+                                            <p style="text-align: center;">{day.description}</p>
+                                        </div>
+                                    </div>
+                                </template>
+                            </div>
+                        </lightning-card>
+                    </template>
+                    <template if:false={citySelected}>
+                        <lightning-card title="Select a city" icon-name="utility:location">
+                            <p class="slds-p-horizontal_small">Please select a continent and a city to see weather information.</p>
+                        </lightning-card>
+                    </template>
+                </template>
+            </div>
+        </div>
+
+
+    </div>
+</template>

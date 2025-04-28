@@ -1,0 +1,22 @@
+{
+  "packageDirectories": [
+    {
+      "versionName": "ver 0.1",
+      "versionNumber": "0.1.0.NEXT",
+      "path": "force-app",
+      "default": true,
+      "package": "test",
+      "versionDescription": ""
+    }
+  ],
+  "name": "Weather App Ok",
+  "namespace": "jjvargasApps",
+  "sfdcLoginUrl": "https://login.salesforce.com",
+  "sourceApiVersion": "62.0",
+  "packageAliases": {
+    "test": "0Hoak0000000VDVCA2",
+    "test@0.1.0-1": "04tak00000088GXAAY",
+    "Weather App Oktana": "0Hoak0000000VGjCAM",
+    "Weather App Oktana@0.1.0-1": "04tak0000008Ai9AAE"
+  }
+}
